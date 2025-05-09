@@ -1,7 +1,10 @@
 
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+<<<<<<< HEAD
 import { motion } from "framer-motion";
+=======
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
@@ -10,7 +13,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+<<<<<<< HEAD
 import Layout from "@/components/Layout";
+=======
+import Header from "@/components/header/Header";
+import Footer from "@/components/Footer";
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
 import CategoryDistribution from "@/components/analytics/CategoryDistribution";
 import TemporalAnalysis from "@/components/analytics/TemporalAnalysis";
 import TopVotedIssues from "@/components/analytics/TopVotedIssues";
@@ -19,7 +27,10 @@ import { useToast } from "@/components/ui/use-toast";
 import { IssueCategory, IssueStatus } from "@/types";
 import { getCategoryDistribution, getTemporalAnalysis, getTopVotedIssues, getIssuesForMap } from "@/lib/supabase-data";
 import { useQuery } from "@tanstack/react-query";
+<<<<<<< HEAD
 import { ChartLine, ChevronDown, BarChart3, MapPin } from "lucide-react";
+=======
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
 
 // Type definitions for the data structures
 interface CategoryData {
@@ -55,6 +66,7 @@ interface LocationState {
   showMap?: boolean;
 }
 
+<<<<<<< HEAD
 // Animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -72,6 +84,8 @@ const staggerContainer = {
   }
 };
 
+=======
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
 const Analytics = () => {
   const location = useLocation();
   const state = location.state as LocationState | null;
@@ -146,6 +160,7 @@ const Analytics = () => {
   };
 
   return (
+<<<<<<< HEAD
     <Layout fullWidth className="py-8 md:py-12 bg-gradient-to-br from-background via-background to-muted/30">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div 
@@ -205,11 +220,38 @@ const Analytics = () => {
                       </span>
                       Category Distribution
                     </CardTitle>
+=======
+    <div className="min-h-screen flex flex-col">
+      <Header />
+
+      <main className="flex-grow py-8 md:py-12 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 md:px-6">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">Analytics Dashboard</h1>
+          <p className="text-muted-foreground mb-8">
+            Explore and analyze civic issues across the community
+          </p>
+
+          <Tabs defaultValue="overview" value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <TabsList className="mb-8">
+              <TabsTrigger value="overview">Overview</TabsTrigger>
+              <TabsTrigger value="map">Map View</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="overview" className="space-y-8 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle>Category Distribution</CardTitle>
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                     <CardDescription>
                       Number of issues by category
                     </CardDescription>
                   </CardHeader>
+<<<<<<< HEAD
                   <CardContent className="h-[350px] p-4">
+=======
+                  <CardContent className="h-[300px] p-4">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                     {isLoading ? (
                       <div className="h-full flex items-center justify-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
@@ -224,6 +266,7 @@ const Analytics = () => {
                   </CardContent>
                 </Card>
 
+<<<<<<< HEAD
                 <Card className="overflow-hidden border border-border/50 shadow-md hover:shadow-lg transition-all duration-300">
                   <CardHeader className="pb-2 bg-gradient-to-r from-background to-muted/30">
                     <CardTitle className="flex items-center gap-2">
@@ -232,11 +275,20 @@ const Analytics = () => {
                       </span>
                       Temporal Analysis
                     </CardTitle>
+=======
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle>Temporal Analysis</CardTitle>
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                     <CardDescription>
                       Issue reports over the past 7 days
                     </CardDescription>
                   </CardHeader>
+<<<<<<< HEAD
                   <CardContent className="h-[350px] p-4">
+=======
+                  <CardContent className="h-[300px] p-4">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                     {isLoading ? (
                       <div className="h-full flex items-center justify-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
@@ -246,6 +298,7 @@ const Analytics = () => {
                     )}
                   </CardContent>
                 </Card>
+<<<<<<< HEAD
               </motion.div>
 
               <motion.div variants={fadeIn}>
@@ -282,6 +335,31 @@ const Analytics = () => {
               animate="visible"
             >
               <Card className="h-full overflow-hidden border border-border/50 shadow-md">
+=======
+              </div>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Top Voted Issues</CardTitle>
+                  <CardDescription>
+                    Most supported issues by community votes
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {isLoading ? (
+                    <div className="h-[400px] flex items-center justify-center">
+                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+                    </div>
+                  ) : (
+                    <TopVotedIssues issues={topVotedIssues} />
+                  )}
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="map" className="h-[70vh] min-h-[600px]">
+              <Card className="h-full">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                 <CardContent className="p-0 h-full overflow-hidden">
                   {isLoading ? (
                     <div className="h-full flex items-center justify-center">
@@ -297,11 +375,21 @@ const Analytics = () => {
                   )}
                 </CardContent>
               </Card>
+<<<<<<< HEAD
             </motion.div>
           </TabsContent>
         </Tabs>
       </div>
     </Layout>
+=======
+            </TabsContent>
+          </Tabs>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
   );
 };
 

@@ -1,20 +1,34 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, BarChart3, FileText, MapPin, Building2, FileWarning, ClipboardList } from "lucide-react";
+=======
+import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Menu, X, BarChart3, FileText } from "lucide-react";
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
 import MobileMenu from "./MobileMenu";
 import UserMenu from "./UserMenu";
 import { ThemeToggle } from "../theme/ThemeToggle";
 import { useAuth } from "@/context/AuthContext";
+<<<<<<< HEAD
 import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+=======
+
+const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
   const { user, signOut, isLoading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
+<<<<<<< HEAD
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -25,6 +39,8 @@ const Header = () => {
     };
   }, []);
 
+=======
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -44,6 +60,7 @@ const Header = () => {
     }
   };
 
+<<<<<<< HEAD
   const isActive = (path: string) => {
     return location.pathname === path;
   };
@@ -99,11 +116,32 @@ const Header = () => {
                 "flex items-center"
               )}
             >
+=======
+  return (
+    <header className="sticky top-0 z-50 w-full bg-white dark:bg-gray-900 border-b shadow-sm">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center">
+              <span className="text-2xl font-bold text-civic-blue">Civic<span className="text-civic-green">Sync</span></span>
+            </Link>
+          </div>
+          
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link to="/" className="text-gray-700 dark:text-gray-200 hover:text-civic-blue transition-colors">
+              Home
+            </Link>
+            <Link to="/issues" className="text-gray-700 dark:text-gray-200 hover:text-civic-blue transition-colors">
+              Browse Issues
+            </Link>
+            <Link to="/analytics" className="text-gray-700 dark:text-gray-200 hover:text-civic-blue transition-colors flex items-center">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
               <BarChart3 size={16} className="mr-1" />
               Analytics
             </Link>
             {user && (
               <>
+<<<<<<< HEAD
                 <Link 
                   to="/report" 
                   className={cn(
@@ -126,6 +164,12 @@ const Header = () => {
                     "animate-fade-in flex items-center"
                   )}
                 >
+=======
+                <Link to="/report" className="text-gray-700 dark:text-gray-200 hover:text-civic-blue transition-colors animate-fade-in">
+                  Report Issue
+                </Link>
+                <Link to="/my-issues" className="text-gray-700 dark:text-gray-200 hover:text-civic-blue transition-colors flex items-center animate-fade-in">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                   <FileText size={16} className="mr-1" />
                   My Issues
                 </Link>
@@ -133,7 +177,11 @@ const Header = () => {
             )}
           </nav>
 
+<<<<<<< HEAD
           <div className="flex items-center space-x-3">
+=======
+          <div className="flex items-center space-x-2">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
             <ThemeToggle />
             
             {isLoading ? (
@@ -141,6 +189,7 @@ const Header = () => {
             ) : user ? (
               <UserMenu />
             ) : (
+<<<<<<< HEAD
               <div className="hidden md:flex items-center space-x-3">
                 <Button 
                   variant="outline" 
@@ -153,6 +202,13 @@ const Header = () => {
                   className="rounded-full px-5 bg-civic-blue hover:bg-civic-blue/90 dark:bg-civic-blue-dark dark:hover:bg-civic-blue-dark/90"
                   onClick={handleAuthClick}
                 >
+=======
+              <div className="hidden md:flex items-center space-x-4">
+                <Button variant="outline" onClick={handleAuthClick}>
+                  Log in
+                </Button>
+                <Button onClick={handleAuthClick}>
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                   Sign up
                 </Button>
               </div>
@@ -161,10 +217,15 @@ const Header = () => {
             <div className="md:hidden">
               <Button 
                 variant="ghost" 
+<<<<<<< HEAD
                 size="icon"
                 onClick={toggleMobileMenu}
                 aria-label="Toggle menu"
                 className="rounded-full"
+=======
+                onClick={toggleMobileMenu}
+                aria-label="Toggle menu"
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
               >
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </Button>
@@ -176,8 +237,12 @@ const Header = () => {
       {mobileMenuOpen && (
         <MobileMenu 
           isLoggedIn={!!user} 
+<<<<<<< HEAD
           onAuth={handleAuthClick}
           onLogout={signOut}
+=======
+          onAuth={user ? () => signOut() : () => {}}
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
           onClose={() => setMobileMenuOpen(false)}
         />
       )}

@@ -6,18 +6,29 @@ import { IssueCategory, IssueStatus, Issue } from "@/types";
 import CategoryIcon from "@/components/issues/CategoryIcon";
 import StatusBadge from "@/components/issues/StatusBadge";
 import { Card } from "@/components/ui/card";
+<<<<<<< HEAD
 import { motion } from "framer-motion";
+=======
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
 
 interface TopVotedIssuesProps {
   issues: Issue[];
 }
 
 const COLORS = {
+<<<<<<< HEAD
   road: "#F59E0B",     // amber from our updated theme
   water: "#2563EB",    // blue from our updated theme
   sanitation: "#22C55E", // green from our updated theme
   electricity: "#38BDF8", // sky from our updated theme
   other: "#6B7280",    // gray
+=======
+  road: "#FBBF24",     // amber from our updated theme
+  water: "#4C6FFF",    // blue from our updated theme
+  sanitation: "#34D399", // green from our updated theme
+  electricity: "#FBBF24", // amber from our updated theme (for consistency)
+  other: "#94A3B8",    // gray
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
 };
 
 const TopVotedIssues: React.FC<TopVotedIssuesProps> = ({ issues }) => {
@@ -43,6 +54,7 @@ const TopVotedIssues: React.FC<TopVotedIssuesProps> = ({ issues }) => {
     );
   }
 
+<<<<<<< HEAD
   // Create animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -74,6 +86,11 @@ const TopVotedIssues: React.FC<TopVotedIssuesProps> = ({ issues }) => {
         className="h-[300px] w-full"
         variants={itemVariants}
       >
+=======
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="h-[300px] w-full">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={sortedData}
@@ -89,7 +106,11 @@ const TopVotedIssues: React.FC<TopVotedIssuesProps> = ({ issues }) => {
               type="number" 
               tickLine={false} 
               axisLine={false}
+<<<<<<< HEAD
               tick={{ fontSize: 12, fill: 'var(--muted-foreground)' }}
+=======
+              tick={{ fontSize: 12 }}
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
             />
             <YAxis
               dataKey="title"
@@ -97,19 +118,31 @@ const TopVotedIssues: React.FC<TopVotedIssuesProps> = ({ issues }) => {
               tickLine={false}
               axisLine={false}
               width={90}
+<<<<<<< HEAD
               tick={{ fontSize: 12, fill: 'var(--muted-foreground)' }}
+=======
+              tick={{ fontSize: 12 }}
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
               tickFormatter={(value) => value.length > 15 ? `${value.substring(0, 15)}...` : value}
             />
             <Tooltip 
               formatter={(value: number) => [`${value} votes`, 'Votes']}
               labelFormatter={(label) => label}
               contentStyle={{
+<<<<<<< HEAD
                 backgroundColor: 'var(--card)',
                 borderRadius: '8px',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
                 border: '1px solid var(--border)'
               }}
               wrapperStyle={{ outline: 'none' }}
+=======
+                backgroundColor: 'white',
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                border: '1px solid #E2E8F0'
+              }}
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
             />
             <Bar 
               dataKey="votes" 
@@ -117,19 +150,26 @@ const TopVotedIssues: React.FC<TopVotedIssuesProps> = ({ issues }) => {
               radius={[0, 4, 4, 0]}
               cursor="pointer"
               onClick={handleClick}
+<<<<<<< HEAD
               animationDuration={1500}
               animationEasing="ease-out"
+=======
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
             >
               {sortedData.map((entry, index) => (
                 <Cell 
                   key={`cell-${index}`} 
                   fill={COLORS[entry.category]} 
+<<<<<<< HEAD
                   style={{ filter: 'drop-shadow(0px 2px 3px rgba(0,0,0,0.1))' }}
+=======
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                 />
               ))}
             </Bar>
           </BarChart>
         </ResponsiveContainer>
+<<<<<<< HEAD
       </motion.div>
       
       <motion.div variants={itemVariants}>
@@ -188,6 +228,52 @@ const TopVotedIssues: React.FC<TopVotedIssuesProps> = ({ issues }) => {
         </Card>
       </motion.div>
     </motion.div>
+=======
+      </div>
+      
+      <Card className="p-4 h-[300px] overflow-auto">
+        <table className="w-full">
+          <thead className="text-sm text-muted-foreground">
+            <tr>
+              <th className="text-left font-medium py-2">Issue</th>
+              <th className="text-center font-medium py-2 w-24">Votes</th>
+              <th className="text-center font-medium py-2 w-32">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedData.map((issue) => (
+              <tr 
+                key={issue.id}
+                className="border-t border-border hover:bg-muted/50 cursor-pointer transition-colors"
+                onClick={() => handleClick(issue)}
+              >
+                <td className="py-3">
+                  <div className="flex items-start gap-2">
+                    <div className="mt-1">
+                      <CategoryIcon category={issue.category} size={16} />
+                    </div>
+                    <span className="line-clamp-2">{issue.title}</span>
+                  </div>
+                </td>
+                <td className="text-center font-medium">{issue.votes}</td>
+                <td className="text-center">
+                  <div className="flex justify-center py-1">
+                    <StatusBadge status={issue.status} size="sm" />
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        
+        {sortedData.length === 0 && (
+          <div className="flex items-center justify-center h-full text-muted-foreground">
+            No data available
+          </div>
+        )}
+      </Card>
+    </div>
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
   );
 };
 

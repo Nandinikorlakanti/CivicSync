@@ -1,6 +1,10 @@
 
 import React from "react";
+<<<<<<< HEAD
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from "recharts";
+=======
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
 import { format, parseISO } from "date-fns";
 
 interface TemporalDataPoint {
@@ -30,7 +34,11 @@ const TemporalAnalysis: React.FC<TemporalAnalysisProps> = ({ data }) => {
   return (
     <div className="w-full h-full">
       <ResponsiveContainer width="100%" height="100%">
+<<<<<<< HEAD
         <AreaChart
+=======
+        <LineChart
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
           data={formattedData}
           margin={{
             top: 10,
@@ -39,6 +47,7 @@ const TemporalAnalysis: React.FC<TemporalAnalysisProps> = ({ data }) => {
             bottom: 20,
           }}
         >
+<<<<<<< HEAD
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
@@ -46,19 +55,31 @@ const TemporalAnalysis: React.FC<TemporalAnalysisProps> = ({ data }) => {
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border)" opacity={0.4} />
+=======
+          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
           <XAxis 
             dataKey="formattedDate" 
             tickLine={false}
             axisLine={false}
+<<<<<<< HEAD
             tick={{ fontSize: 12, fill: 'var(--muted-foreground)' }}
             tickMargin={10}
             dy={10}
+=======
+            tick={{ fontSize: 12 }}
+            tickMargin={10}
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
           />
           <YAxis 
             tickLine={false}
             axisLine={false}
             width={30}
+<<<<<<< HEAD
             tick={{ fontSize: 12, fill: 'var(--muted-foreground)' }}
+=======
+            tick={{ fontSize: 12 }}
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
             tickFormatter={(value) => value}
             domain={[0, 'auto']}
           />
@@ -71,6 +92,7 @@ const TemporalAnalysis: React.FC<TemporalAnalysisProps> = ({ data }) => {
               boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
               border: '1px solid var(--border)'
             }}
+<<<<<<< HEAD
             wrapperStyle={{
               outline: 'none',
             }}
@@ -91,6 +113,18 @@ const TemporalAnalysis: React.FC<TemporalAnalysisProps> = ({ data }) => {
             animationEasing="ease-out"
           />
         </AreaChart>
+=======
+          />
+          <Line
+            type="monotone"
+            dataKey="count"
+            stroke="hsl(var(--primary))"
+            activeDot={{ r: 8 }}
+            strokeWidth={2}
+            dot={{ strokeWidth: 2, r: 4, fill: "white" }}
+          />
+        </LineChart>
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
       </ResponsiveContainer>
     </div>
   );

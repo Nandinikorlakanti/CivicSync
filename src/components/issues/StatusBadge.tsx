@@ -1,7 +1,10 @@
 
 import React from "react";
 import { IssueStatus } from "@/types";
+<<<<<<< HEAD
 import { cn } from "@/lib/utils";
+=======
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
 
 export interface StatusBadgeProps {
   status: IssueStatus;
@@ -15,6 +18,7 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({
   className = ""
 }) => {
   const getStatusClasses = () => {
+<<<<<<< HEAD
     const baseClasses = "status-badge rounded-full inline-flex items-center justify-center font-medium transition-all shadow-sm";
     
     const sizeClasses = {
@@ -31,6 +35,23 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({
       sizeClasses[size],
       className
     );
+=======
+    const baseClasses = "status-badge rounded-full inline-flex items-center justify-center font-medium";
+    
+    const sizeClasses = {
+      sm: "text-xs px-1.5 py-0.5",
+      md: "text-xs px-2.5 py-1",
+      lg: "text-sm px-3 py-1.5"
+    };
+    
+    const statusClasses = {
+      "pending": "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-500",
+      "in-progress": "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-500",
+      "resolved": "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-500"
+    };
+    
+    return `${baseClasses} ${statusClasses[status]} ${sizeClasses[size]} ${className}`;
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
   };
   
   const getStatusLabel = () => {
@@ -45,6 +66,7 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({
   
   return (
     <span className={getStatusClasses()}>
+<<<<<<< HEAD
       {status === "pending" && (
         <span className="mr-1.5 inline-block w-2 h-2 rounded-full bg-civic-amber dark:bg-civic-amber-dark animate-ping" style={{animationDuration: '2s'}}></span>
       )}
@@ -54,6 +76,8 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({
       {status === "resolved" && (
         <span className="mr-1.5 inline-block w-2 h-2 rounded-full bg-civic-green dark:bg-civic-green-dark"></span>
       )}
+=======
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
       {getStatusLabel()}
     </span>
   );

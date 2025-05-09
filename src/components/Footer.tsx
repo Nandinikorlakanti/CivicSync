@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import { MapPin, Mail, Phone, Github, Twitter, Facebook } from "lucide-react";
 
@@ -49,15 +50,42 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+=======
+
+import { Link } from "react-router-dom";
+
+const Footer = () => {
+  return (
+    <footer className="bg-white dark:bg-gray-900 border-t">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="font-semibold text-lg mb-4">About CivicSync</h3>
+            <p className="text-sm text-muted-foreground">
+              A platform empowering citizens to report and track civic issues in their communities.
+            </p>
+          </div>
+          
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                   Home
                 </Link>
               </li>
               <li>
+<<<<<<< HEAD
                 <Link to="/issues" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+=======
+                <Link to="/issues" className="text-muted-foreground hover:text-primary transition-colors">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                   Browse Issues
                 </Link>
               </li>
               <li>
+<<<<<<< HEAD
                 <Link to="/report" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   Report Issue
                 </Link>
@@ -72,23 +100,41 @@ const Footer = () => {
                   My Issues
                 </Link>
               </li>
+=======
+                <Link to="/report" className="text-muted-foreground hover:text-primary transition-colors">
+                  Report Issue
+                </Link>
+              </li>
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
             </ul>
           </div>
           
           <div>
+<<<<<<< HEAD
             <h3 className="font-outfit font-semibold text-lg mb-4">Legal</h3>
             <ul className="space-y-3">
               <li>
                 <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+=======
+            <h3 className="font-semibold text-lg mb-4">Legal</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                   Terms of Service
                 </Link>
               </li>
               <li>
+<<<<<<< HEAD
                 <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+=======
+                <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
                   Privacy Policy
                 </Link>
               </li>
               <li>
+<<<<<<< HEAD
                 <Link to="/accessibility" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   Accessibility
                 </Link>
@@ -98,10 +144,17 @@ const Footer = () => {
                   Cookie Policy
                 </Link>
               </li>
+=======
+                <Link to="/accessibility" className="text-muted-foreground hover:text-primary transition-colors">
+                  Accessibility
+                </Link>
+              </li>
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
             </ul>
           </div>
           
           <div>
+<<<<<<< HEAD
             <h3 className="font-outfit font-semibold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
@@ -128,6 +181,31 @@ const Footer = () => {
         
         <div className="pt-8 border-t text-center text-sm text-muted-foreground">
           <p>&copy; {currentYear} CivicSync. All rights reserved.</p>
+=======
+            <h3 className="font-semibold text-lg mb-4">Connect</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Facebook
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} CivicSync. All rights reserved.</p>
+>>>>>>> 696f3d05e099c37c08eeebe50acc8a5e7e36b570
         </div>
       </div>
     </footer>
